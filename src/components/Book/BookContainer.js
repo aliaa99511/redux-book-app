@@ -1,10 +1,19 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import BookInfo from './BookInfo';
 import BooksList from './BooksList';
 
 import './book.css';
+import { useDispatch } from 'react-redux';
+import { getBooks } from '../../Redux/BookSlice';
 
 const PostContainer = () => {
+
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(getBooks())
+  }, [dispatch]);
+
   return (
     <>
       <hr className='my-5' />
